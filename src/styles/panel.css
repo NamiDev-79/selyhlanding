@@ -1,0 +1,77 @@
+/*
+ * Panel de Selyh (personal y corporativo). Usa los tokens del sistema de diseño Selyh (.selyh)
+ * y añade el lienzo de la aplicación: fondo apenas teñido y tarjetas blancas encima.
+ * El tema lo decide la clase .dark en <html> (mismo interruptor y misma preferencia que la web).
+ */
+@layer components {
+  .selyh-app {
+    --app-bg: #f5f5fb;
+    --app-side: #ffffff;
+    --app-card: #ffffff;
+    --app-card-2: #f7f7fe;
+    --app-edge: #e7e7f3;
+    --app-shadow: 0 1px 2px rgb(15 21 35 / 0.04), 0 10px 26px -18px rgb(15 21 35 / 0.22);
+    --app-shadow-lift: 0 2px 6px rgb(15 21 35 / 0.06), 0 26px 68px -30px rgb(79 79 214 / 0.45);
+
+    /* Los componentes antiguos dibujan tarjetas con --paper: aquí es la tarjeta, no el fondo */
+    --paper: var(--app-card);
+    --paper-2: var(--app-card-2);
+    --line: var(--app-edge);
+
+    background: var(--app-bg);
+  }
+  .dark .selyh-app {
+    --app-bg: #0a0f19;
+    --app-side: #0f1523;
+    --app-card: #121a2a;
+    --app-card-2: #182136;
+    --app-edge: #222c40;
+    --app-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+    --app-shadow-lift: 0 26px 68px -30px rgb(0 0 0 / 0.8);
+    --paper-3: #23284f;
+  }
+
+  html:has(.selyh-app) body {
+    background: #f5f5fb;
+  }
+  html.dark:has(.selyh-app) body {
+    background: #0a0f19;
+  }
+
+  /* Tarjeta del panel: radio 16 (manual), borde fino y sombra suave teñida de tinta */
+  .p-card {
+    border-radius: 16px;
+    border: 1px solid var(--app-edge);
+    background: var(--app-card);
+    box-shadow: var(--app-shadow);
+  }
+  /* Tarjeta destacada en índigo (la acción del día) */
+  .p-hero {
+    border-radius: 16px;
+    color: #ffffff;
+    background:
+      radial-gradient(120% 90% at 100% 0%, rgb(162 162 250 / 0.35), transparent 60%),
+      linear-gradient(160deg, #6d6df3 0%, #5656e6 100%);
+    box-shadow: var(--app-shadow-lift);
+  }
+  .p-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.875rem, 1.4rem + 1.6vw, 2.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.032em;
+    text-wrap: balance;
+  }
+  .p-h2 {
+    font-family: var(--font-display);
+    font-weight: 650;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .p-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+}

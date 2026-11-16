@@ -1,0 +1,209 @@
+/*
+ * Web pública de Selyh (landing, planes, páginas legales).
+ * Valores del sistema de diseño "Selyh" y del manual de marca: el manual es el que manda.
+ *
+ *   Índigo  #6363F1  barra alta, acción principal (14,6 %)
+ *   Tinta   #0F1523  texto y estructura           (23,6 %)
+ *   Blanco  #FFFFFF  espacio                      (61,8 %)
+ *   Apoyo   #A2A2FA barra corta · #4F4FD6 texto de marca · #EEEEFD fondos suaves
+ *
+ * Claro por defecto. El modo oscuro se activa con la clase .dark en <html> (botón del menú).
+ * Además de los tokens propios, este bloque redefine los tokens antiguos (--paper, --ink, --accent…)
+ * para que las piezas compartidas (formularios, páginas legales) sigan la marca en ambos temas.
+ */
+.selyh {
+  color-scheme: light;
+
+  /* Sistema de diseño Selyh */
+  --brand: #6363f1;
+  --brand-soft: #a2a2fa;
+  --brand-strong: #4f4fd6;
+  --brand-tint: #eeeefd;
+  --brand-display: #6363f1; /* índigo para titulares grandes (≥ 24 px) */
+  --surface: #ffffff;
+  --surface-raised: #f7f7fe;
+  --surface-inverse: #0f1523;
+  --ink-strong: #0f1523;
+  --ink-muted: #4b5563;
+  --ink-on-brand: #ffffff;
+  --hairline: #e5e7eb;
+  --night: #0f1523;
+  --night-raised: #1b2232;
+  --band: #0f1523; /* banda de contraste: tinta en claro */
+
+  /* Roles estilo shadcn (los componentes de components/shadcn usan estos) */
+  --background: var(--surface);
+  --foreground: var(--ink-strong);
+  --card: var(--surface);
+  --card-foreground: var(--ink-strong);
+  --primary: var(--brand);
+  --primary-foreground: var(--ink-on-brand);
+  --secondary: var(--surface-raised);
+  --secondary-foreground: var(--ink-strong);
+  --muted: var(--surface-raised);
+  --muted-foreground: var(--ink-muted);
+  --border: var(--hairline);
+  --input: #d1d5db;
+  --ring: var(--brand);
+
+  /* Vidrio de la barra de navegación (estilo iOS) */
+  --glass-fill: rgb(255 255 255 / 0.68);
+  --glass-edge: rgb(15 21 35 / 0.08);
+  --glass-shine: rgb(255 255 255 / 0.9);
+  --glass-shadow: 0 1px 1px rgb(15 21 35 / 0.04), 0 12px 32px -14px rgb(15 21 35 / 0.28);
+
+  /* Tokens antiguos, alineados a la marca */
+  --paper: #ffffff;
+  --paper-2: #f7f7fe;
+  --paper-3: #eeeefd;
+  --ink: #0f1523;
+  --ink-soft: #4b5563;
+  --ink-faint: #5b6472;
+  --line: #e5e7eb;
+  --line-strong: #d1d5db;
+  --accent: #6363f1;
+  --accent-strong: #4f4fd6;
+  --accent-wash: #eeeefd;
+  --on-accent: #ffffff;
+  --mint: #a2a2fa;
+  --mint-ink: #4f4fd6;
+  --mint-wash: #eeeefd;
+  --warm: #a2a2fa;
+  --warm-ink: #4f4fd6;
+  --warm-wash: #eeeefd;
+  --night-2: #1b2232;
+  --shadow-card: 0 1px 2px rgb(15 21 35 / 0.05), 0 8px 24px -14px rgb(15 21 35 / 0.18);
+  --shadow-float: 0 2px 6px rgb(15 21 35 / 0.06), 0 24px 60px -24px rgb(15 21 35 / 0.35);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-figures: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-quote: var(--font-lora), Georgia, serif;
+
+  /* Movimiento de la marca */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.dark .selyh {
+  color-scheme: dark;
+
+  --brand: #6363f1;
+  --brand-soft: #a2a2fa;
+  --brand-strong: #c7c7fa;
+  --brand-tint: #23284f;
+  --brand-display: #a2a2fa;
+  --surface: #0f1523;
+  --surface-raised: #161d2d;
+  --surface-inverse: #1b2232;
+  --ink-strong: #ffffff;
+  --ink-muted: #a3aab6;
+  --hairline: #263043;
+  --night: #0b101b;
+  --night-raised: #161d2d;
+  --band: #161d2d;
+
+  --input: #374151;
+
+  --glass-fill: rgb(15 21 35 / 0.62);
+  --glass-edge: rgb(255 255 255 / 0.09);
+  --glass-shine: rgb(255 255 255 / 0.08);
+  --glass-shadow: 0 1px 1px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+
+  --paper: #0f1523;
+  --paper-2: #161d2d;
+  --paper-3: #23284f;
+  --ink: #ffffff;
+  --ink-soft: #c3c8d1;
+  --ink-faint: #a3aab6;
+  --line: #263043;
+  --line-strong: #374151;
+  --accent: #6363f1;
+  --accent-strong: #c7c7fa;
+  --accent-wash: #23284f;
+  --on-accent: #ffffff;
+  --mint: #a2a2fa;
+  --mint-ink: #c7c7fa;
+  --mint-wash: #23284f;
+  --warm: #a2a2fa;
+  --warm-ink: #c7c7fa;
+  --warm-wash: #23284f;
+  --night-2: #161d2d;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-float: 0 24px 60px -24px rgb(0 0 0 / 0.7);
+}
+
+/* El lienzo detrás de la página (rebote del scroll) acompaña al tema elegido. */
+html:has(.selyh) body {
+  background: #ffffff;
+}
+html.dark:has(.selyh) body {
+  background: #0f1523;
+}
+
+/* Barra de navegación de vidrio: desenfoque + saturación, borde fino y brillo superior, como en iOS. */
+.glass {
+  background: var(--glass-fill);
+  /* 14 px en vez de 22: casi idéntico a la vista y bastante más barato de recomponer al hacer scroll */
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    inset 0 1px 0 var(--glass-shine),
+    var(--glass-shadow);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: var(--background);
+  }
+}
+
+/* Frase de marca en Lora cursiva: solo en momentos puntuales. */
+.quote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.selyh h1,
+.selyh h2 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Cifras tabulares */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Animaciones de los componentes shadcn */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+}
+@keyframes sheet-out {
+  to { opacity: 0; transform: translateY(-6px) scale(0.98); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="accordion-content"],
+  [data-slot="sheet-content"] {
+    animation: none !important;
+  }
+}

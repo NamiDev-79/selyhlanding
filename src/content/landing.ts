@@ -23,16 +23,21 @@ export const platforms = {
       id: "vscode",
       name: "Extensión de VS Code",
       body: "El check-in vive en la barra de estado. Aparece después de un commit, no en medio de una idea.",
-      get: [{ icon: "vscode", kicker: "Instalar en", label: "VS Code", href: "/registro?origen=vscode" }],
+      get: [{ icon: "vscode", kicker: "Instalar en", label: "VS Code", href: "#", disabled: true }],
     },
     {
       id: "desktop",
       name: "Agente de escritorio",
       body: "Para quien no vive en un solo editor. Discreto en la bandeja, con horas de silencio y modo foco.",
       get: [
-        { icon: "windows", kicker: "Descargar para", label: "Windows", href: "/registro?origen=windows" },
-        { icon: "apple", kicker: "Descargar para", label: "macOS", href: "/registro?origen=macos" },
-        { icon: "linux", kicker: "Descargar para", label: "Linux", href: "/registro?origen=linux" },
+        {
+          icon: "windows",
+          kicker: "Descargar para",
+          label: "Windows",
+          href: "https://github.com/NamiDev-79/selyh-desktop/releases/download/Demo-Windows/Selyh_0.1.0_x64-setup.exe",
+        },
+        { icon: "apple", kicker: "Descargar para", label: "macOS", href: "#", disabled: true },
+        { icon: "linux", kicker: "Descargar para", label: "Linux", href: "#", disabled: true },
       ],
     },
     {
@@ -40,8 +45,14 @@ export const platforms = {
       name: "App móvil",
       body: "Responde una escala con calma o mira tu semana lejos de la pantalla de trabajo.",
       get: [
-        { icon: "apple", kicker: "Descárgala en", label: "App Store", href: "/registro?origen=ios" },
-        { icon: "play", kicker: "Disponible en", label: "Google Play", href: "/registro?origen=android" },
+        {
+          icon: "android",
+          kicker: "Descargar APK",
+          label: "Android (GitHub)",
+          href: "https://github.com/NamiDev-79/selyhapp-mobile/releases/download/Demo-Mobile/SelyhApp_0.1.0.DEMO.apk",
+        },
+        { icon: "play", kicker: "Disponible en", label: "Google Play", href: "#", disabled: true },
+        { icon: "apple", kicker: "Descárgala en", label: "App Store", href: "#", disabled: true },
       ],
     },
     {

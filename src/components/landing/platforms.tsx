@@ -188,15 +188,40 @@ const tiles: Record<string, ReactNode> = {
 /** Anchos en proporción áurea, alternados por fila (los que tienen más botones, más anchos). */
 const spans = ["lg:col-span-5", "lg:col-span-8", "lg:col-span-8", "lg:col-span-5"];
 
-type Get = { icon: string; kicker: string; label: string; href: string };
+type Get = { icon: string; kicker: string; label: string; href: string; disabled?: boolean };
 
 /** Botón de descarga al estilo de las tiendas: logo + «Descargar para» + plataforma. */
 function GetButton({ g }: { g: Get }) {
   const Logo = platformLogo[g.icon as PlatformIcon];
+
+  if (g.disabled) {
+    return (
+      <m.div variants={fade} className="cursor-not-allowed">
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          tabIndex={-1}
+          aria-disabled="true"
+          title={`${g.label} (Próximamente)`}
+          className="flex h-[52px] cursor-not-allowed select-none items-center gap-2.5 rounded-[10px] bg-[#0f1523]/30 pl-3 pr-4 text-white/45 ring-1 ring-white/10 grayscale filter transition-opacity [.dark_&]:bg-white/10 [.dark_&]:text-[#0f1523]/40 [.dark_&]:ring-black/10"
+        >
+          <Logo className="opacity-45" />
+          <span className="grid text-left leading-none">
+            <span className="text-[11px] opacity-60">{g.kicker}</span>
+            <span className="mt-1 font-display text-[16px] font-semibold tracking-[-0.01em] opacity-80">{g.label}</span>
+          </span>
+        </a>
+      </m.div>
+    );
+  }
+
+  const isExternal = g.href.startsWith("http");
+
   return (
     <m.div variants={fade} whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 500, damping: 30 }}>
       <Link
         href={g.href}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         className="flex h-[52px] items-center gap-2.5 rounded-[10px] bg-[#0f1523] pl-3 pr-4 text-white ring-1 ring-[#0f1523] transition-[background-color,color,box-shadow] duration-200 hover:bg-[#6363f1] hover:text-white hover:ring-[#6363f1] [.dark_&]:bg-white [.dark_&]:text-[#0f1523] [.dark_&]:ring-white [.dark_&]:hover:bg-[#6363f1] [.dark_&]:hover:text-white [.dark_&]:hover:ring-[#6363f1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6363f1]"
       >
         <Logo />
@@ -244,7 +269,7 @@ export function Platforms() {
                 <p className="l-body text-muted-foreground">{p.body}</p>
                 <div className="mt-1 flex flex-wrap gap-2.5">
                   {p.get.map((g) => (
-                    <GetButton key={g.href} g={g} />
+                    <GetButton key={`${g.icon}-${g.label}`} g={g} />
                   ))}
                 </div>
               </div>

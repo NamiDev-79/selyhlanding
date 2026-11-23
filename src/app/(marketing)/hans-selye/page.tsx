@@ -10,20 +10,85 @@ import { pageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = {
   ...pageMetadata(
     "/hans-selye",
-    "Hans Selye y el origen de Selyh",
+    "Hans Selye: El padre del estrés y el origen de Selyh",
     hansSelyeDoc.description,
   ),
+  keywords: [
+    "Hans Selye",
+    "Hans Selye estrés",
+    "padre del estrés",
+    "síndrome general de adaptación",
+    "GAS",
+    "eustrés",
+    "distrés",
+    "ciencia del estrés",
+    "origen de Selyh",
+  ],
   openGraph: {
-    title: "Hans Selye: la ciencia del estrés y el origen de Selyh",
+    title: "Hans Selye: La ciencia del estrés y el origen de Selyh",
     description: hansSelyeDoc.description,
     url: "/hans-selye",
     images: [{ url: hansSelyeDoc.portrait.src, width: 800, height: 1000, alt: hansSelyeDoc.portrait.alt }],
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hans Selye: La ciencia del estrés y el origen de Selyh",
+  "description": hansSelyeDoc.description,
+  "image": hansSelyeDoc.portrait.src,
+  "inLanguage": "es",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://selyh.fun/hans-selye"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Selyh",
+    "url": "https://selyh.fun"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Selyh",
+    "url": "https://selyh.fun",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://selyh.fun/brand/isotipo-indigo.svg"
+    }
+  },
+  "about": [
+    {
+      "@type": "Person",
+      "name": "Hans Selye",
+      "birthDate": "1907-01-26",
+      "deathDate": "1982-10-16",
+      "jobTitle": "Médico y fisiólogo",
+      "sameAs": [
+        "https://es.wikipedia.org/wiki/Hans_Selye",
+        "https://en.wikipedia.org/wiki/Hans_Selye",
+        "https://www.wikidata.org/wiki/Q215570"
+      ]
+    },
+    {
+      "@type": "Thing",
+      "name": "Estrés biológico",
+      "sameAs": "https://es.wikipedia.org/wiki/Estr%C3%A9s"
+    },
+    {
+      "@type": "Thing",
+      "name": "Síndrome General de Adaptación"
+    }
+  ]
+};
+
 export default function HansSelyePage() {
   return (
     <article className="py-[clamp(3rem,2rem+4vw,6.5rem)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Cabecera editorial */}
       <header className="wrap mb-16 max-w-5xl">
         <div className="flex flex-wrap items-center gap-3">

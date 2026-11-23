@@ -7,9 +7,14 @@ export const site = {
   description:
     "Selyh ayuda a desarrolladores y equipos de software a prevenir el estrés laboral y el burnout sin salir de su flujo de trabajo: check-ins de un toque desde VS Code, el escritorio o el móvil, tu propia línea base y pausas breves. Sin vigilancia y con tus datos bajo tu control.",
   keywords: [
+    "Hans Selye",
+    "Hans Selye estrés",
+    "síndrome general de adaptación",
+    "ciencia del estrés",
     "salud mental para desarrolladores",
     "estrés laboral",
     "burnout en programadores",
+    "prevención del estrés",
     "bienestar de equipos de desarrollo",
     "extensión VS Code bienestar",
     "prevención del agotamiento",

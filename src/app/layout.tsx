@@ -43,11 +43,47 @@ export const viewport: Viewport = {
  */
 const themeScript = `(function(){try{var t=localStorage.getItem("selyh-theme");if(t==="dark"||(!t&&["/panel","/empresa","/device"].some(function(p){return location.pathname.indexOf(p)===0})&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://selyh.fun/#organization",
+      "name": "Selyh",
+      "url": "https://selyh.fun",
+      "logo": "https://selyh.fun/brand/isotipo-indigo.svg",
+      "description": "Plataforma de bienestar y prevención del estrés laboral para desarrolladores y equipos, inspirada en las investigaciones de Hans Selye.",
+      "sameAs": [
+        "https://www.linkedin.com/in/selyh-devs-81788344b/",
+        "https://www.instagram.com/selyh.fun/"
+      ],
+      "knowsAbout": [
+        "Hans Selye",
+        "https://es.wikipedia.org/wiki/Hans_Selye",
+        "Estrés laboral",
+        "https://es.wikipedia.org/wiki/Estr%C3%A9s",
+        "Síndrome General de Adaptación",
+        "Burnout"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://selyh.fun/#website",
+      "url": "https://selyh.fun",
+      "name": "Selyh",
+      "description": "Salud mental y prevención del estrés para desarrolladores",
+      "publisher": { "@id": "https://selyh.fun/#organization" },
+      "inLanguage": "es"
+    }
+  ]
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${bricolage.variable} ${spaceGrotesk.variable} ${lora.variable} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="min-h-dvh" suppressHydrationWarning>
         <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-paper focus:px-4 focus:py-2">

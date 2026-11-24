@@ -23,7 +23,11 @@ export const platforms = {
       id: "vscode",
       name: "Extensión de VS Code",
       body: "El check-in vive en la barra de estado. Aparece después de un commit, no en medio de una idea.",
-      get: [{ icon: "vscode", kicker: "Instalar en", label: "VS Code", href: "#", disabled: true }],
+      get: [
+        { 
+          icon: "vscode", kicker: "Instalar en", label: "VS Code", href: "https://marketplace.visualstudio.com/items?itemName=selyh.selyh",
+        }
+      ],
     },
     {
       id: "desktop",

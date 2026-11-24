@@ -84,6 +84,7 @@ export const consentCopy: Record<string, { label: string; body: string }> = {
   IDE_GIT: { label: "Editor y Git", body: "Horas activas, minutos fuera de horario y racha más larga. Nunca código ni mensajes." },
   WEARABLE: { label: "Wearables", body: "Variabilidad cardíaca, pulso en reposo y sueño (plan Plus)." },
   DESKTOP: { label: "Agente de escritorio", body: "Horas activas, pausas, sesión continua más larga y trabajo fuera de horario, calculados en tu equipo. Nunca teclas, ventanas ni archivos." },
+  SLEEP: { label: "Sueño", body: "Cómo dormiste y cuántas horas, si quieres contarlo tras tu primer check-in del día. Nunca se infiere de tu teléfono ni de tu equipo." },
   BIOMETRIC: { label: "Biométricos", body: "Reservado para mediciones futuras. Hoy no se recoge nada." },
 };
 

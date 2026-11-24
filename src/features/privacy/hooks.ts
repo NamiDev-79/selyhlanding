@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { api, unwrap } from "@/lib/api/client";
 
-export type Source = "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+export type Source = "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
 
 export function useConsent() {
   return useQuery({ queryKey: ["consent"], queryFn: () => unwrap(api.GET("/consent")) });

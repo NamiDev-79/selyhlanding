@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1 },
     { path: "/hans-selye", priority: 0.9 },
     { path: "/precios", priority: 0.8 },
+    { path: "/support", priority: 0.5 },
     { path: "/privacidad", priority: 0.4 },
     { path: "/terminos", priority: 0.3 },
     { path: "/registro", priority: 0.5 },

@@ -2999,7 +2999,7 @@ export interface operations {
                 content: {
                     "application/json": {
                         /** @enum {string} */
-                        dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+                        dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
                         granted: boolean;
                         grantedAt: string | null;
                     }[];
@@ -3019,7 +3019,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                source: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+                source: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
             };
             cookie?: never;
         };
@@ -3039,7 +3039,7 @@ export interface operations {
                 content: {
                     "application/json": {
                         /** @enum {string} */
-                        dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+                        dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
                         granted: boolean;
                         grantedAt: string | null;
                     }[];
@@ -5088,7 +5088,7 @@ export interface operations {
                          */
                         date: string;
                         /** @enum {string} */
-                        sourceType: "IDE" | "CALENDAR" | "DESKTOP";
+                        sourceType: "IDE" | "CALENDAR" | "DESKTOP" | "SLEEP";
                         metrics: {
                             [key: string]: number;
                         };
@@ -5129,7 +5129,7 @@ export interface operations {
                     /** Format: date */
                     date: string;
                     /** @enum {string} */
-                    sourceType: "IDE" | "CALENDAR" | "DESKTOP";
+                    sourceType: "IDE" | "CALENDAR" | "DESKTOP" | "SLEEP";
                     metrics: {
                         [key: string]: number;
                     };
@@ -5154,7 +5154,7 @@ export interface operations {
                          */
                         date: string;
                         /** @enum {string} */
-                        sourceType: "IDE" | "CALENDAR" | "DESKTOP";
+                        sourceType: "IDE" | "CALENDAR" | "DESKTOP" | "SLEEP";
                         metrics: {
                             [key: string]: number;
                         };
@@ -5313,7 +5313,7 @@ export interface operations {
                         state: {
                             consent: {
                                 /** @enum {string} */
-                                dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+                                dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
                                 granted: boolean;
                                 grantedAt: string | null;
                             }[];
@@ -5371,7 +5371,7 @@ export interface operations {
                     "application/json": {
                         consent: {
                             /** @enum {string} */
-                            dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP";
+                            dataSource: "CHECKIN" | "CALENDAR" | "IDE_GIT" | "WEARABLE" | "BIOMETRIC" | "DESKTOP" | "SLEEP";
                             granted: boolean;
                             grantedAt: string | null;
                         }[];

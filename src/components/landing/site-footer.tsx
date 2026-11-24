@@ -38,6 +38,7 @@ const columns = [
       { label: "Por qué Hans Selye", href: "/hans-selye" },
       { label: "Pedir una demo", href: "/#contacto" },
       { label: "Preguntas frecuentes", href: "/#preguntas" },
+      { label: "Soporte técnico", href: "/support" },
       { label: "Iniciar sesión", href: "/login" },
     ],
   },
